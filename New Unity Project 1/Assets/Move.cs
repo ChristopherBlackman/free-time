@@ -17,7 +17,10 @@ public class Move : MonoBehaviour {
 	void Update () {
         //Debug.Log(transform.position.x);
         //velecity of object
-        const float velocity = 0.1f;
+
+		//Gameobject[] satilite = GameObject.FindGameObjectsWithTag ("satilite");
+		//Debug.Log(satilite [0]);
+
         const float G = 06.67E-11f;
         
             float delta_y = transform.position.y - aPlanet.y;
@@ -27,7 +30,7 @@ public class Move : MonoBehaviour {
             float r = Mathf.Pow(Mathf.Pow(delta_x, 2)+Mathf.Pow(delta_y,2)+Mathf.Pow(delta_z,2),0.5f);
 
 
-            float gravity = G * (1E10f) * (1) / Mathf.Pow(r,2);
+            float gravity = G * (1E11f) * (1) / Mathf.Pow(r,2);
 
             float gravity_y = delta_y * gravity / r;
             float gravity_x = delta_x * gravity / r;
@@ -40,7 +43,7 @@ public class Move : MonoBehaviour {
             z = z  - gravity_z;
 
             //oldGravity = new Vector3(gravity_x, gravity_y, gravity_z);
-
+		/*
         //determines velocity in +X direction
         if (Input.GetKeyDown("up")) 
         {
@@ -95,17 +98,54 @@ public class Move : MonoBehaviour {
         {
             //z = z + velocity;
         }
+        */
+		float velocity = 0.01f;
+
+		//determines velocity in +X direction
+		if (Input.GetKey(KeyCode.LeftShift)) 
+		{
+			velocity = 0.001f;
+		}
+		if (Input.GetKey("up")) 
+		{
+			y = y + velocity;
+		}
+		//determines velocity in -X direction
+		if (Input.GetKey(KeyCode.DownArrow))
+		{
+			y = y - velocity;
+		}
+		//determines velocity in +Y direction
+		if (Input.GetKey(KeyCode.RightArrow))
+		{
+			x = x + velocity;
+		}
+		//determines velocity in -Y direction
+		if (Input.GetKey(KeyCode.LeftArrow))
+		{
+			x = x - velocity;
+		}
+		
+		if (Input.GetKey(KeyCode.W))
+		{
+			z = z + velocity;
+		}
+		//determines velocity in -Y direction
+		if (Input.GetKey(KeyCode.S))
+		{
+			z = z - velocity;
+		}
         //if (transform.position.y > 40 || transform.position.y < -40 || transform.position.x > 75 || transform.position.x < -75)
         //{
         //    resetPos();
         //}
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             resetPos();
         }
         //Preforms Move
-        transform.Translate(x,y,z);
-        if (Input.GetKeyDown("escape")) 
+		transform.Translate(x,y,z);
+        if (Input.GetKeyDown(KeyCode.Escape)) 
         { 
             Application.Quit(); 
         }
