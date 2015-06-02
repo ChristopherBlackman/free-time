@@ -12,7 +12,7 @@ public class Camera : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		Debug.Log (GameObject.FindGameObjectsWithTag ("satilite") [0].transform.position);
+		//Debug.Log (GameObject.FindGameObjectsWithTag ("satilite") [0].transform.position);
 		float x = GameObject.FindGameObjectsWithTag ("satilite") [0].transform.position.x;
 		float y = GameObject.FindGameObjectsWithTag ("satilite") [0].transform.position.y;
 		z = z + Input.GetAxis ("Mouse ScrollWheel") * 10f;

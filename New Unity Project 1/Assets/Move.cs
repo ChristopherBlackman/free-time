@@ -164,7 +164,7 @@ public class Move : MonoBehaviour {
     void OnTriggerExit(Collider other)
     {
         aPlanet = new Vector3(0,0,0);
-        Debug.Log("Exit");
+        //Debug.Log("Exit");
     }
     void resetPos()
     {
