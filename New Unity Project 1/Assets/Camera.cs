@@ -13,9 +13,11 @@ public class Camera : MonoBehaviour {
 	void Update () 
 	{
 		//Debug.Log (GameObject.FindGameObjectsWithTag ("satilite") [0].transform.position);
-		float x = GameObject.FindGameObjectsWithTag ("satilite") [0].transform.position.x;
-		float y = GameObject.FindGameObjectsWithTag ("satilite") [0].transform.position.y;
+		//float x = GameObject.FindGameObjectsWithTag ("satilite") [0].transform.position.x;
+		//float y = GameObject.FindGameObjectsWithTag ("satilite") [0].transform.position.y;
 		z = z + Input.GetAxis ("Mouse ScrollWheel") * 10f;
+		float x = 0;
+		float y = 0;
 		transform.position = new Vector3 (x,y,z);
 	}
 }
